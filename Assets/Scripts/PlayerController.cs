@@ -14,11 +14,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        rb2d.velocity = new Vector2(Input.GetAxis("Horizontal") * 10, rb2d.velocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Platform")
-            rb2d.velocity = new Vector2(0, 5);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 5);
     }
 }

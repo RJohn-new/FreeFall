@@ -23,14 +23,14 @@ public class Spawner : MonoBehaviour
     }
 
     private void PrePool() {
-        pool.Add(Instantiate(Platform));
-        pool.Add(Instantiate(Platform));
-        pool.Add(Instantiate(Platform));
-        pool.Add(Instantiate(Platform));
-        pool.Add(Instantiate(Hazard));
-        pool.Add(Instantiate(Hazard));
-        pool.Add(Instantiate(Hazard));
-        pool.Add(Instantiate(Hazard));
+        Pool(Instantiate(Platform));
+        Pool(Instantiate(Platform));
+        Pool(Instantiate(Platform));
+        Pool(Instantiate(Platform));
+        Pool(Instantiate(Hazard));
+        Pool(Instantiate(Hazard));
+        Pool(Instantiate(Hazard));
+        Pool(Instantiate(Hazard));
     }
 
     public void Pool(GameObject thing) {
@@ -38,6 +38,7 @@ public class Spawner : MonoBehaviour
 
         trans.position = new Vector3(-10, -10, 0);
         thing.SetActive(false);
+        trans.SetParent(GameObject.Find("PoolParent").GetComponent<Transform>());
 
         pool.Add(thing);
     }
@@ -55,6 +56,8 @@ public class Spawner : MonoBehaviour
         choice.SetActive(true);
 
         Transform trans = choice.GetComponent<Transform>();
-        trans.position = new Vector3(Random.Range(0, 1080), 1950, 0);
+        trans.position = new Vector3(Random.Range(-2.8f, 2.8f), transform.position.y, 0);
+        trans.SetParent(null);
+        pool.Remove(choice);
     }
 }
