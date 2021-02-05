@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private const int MaxLanding = 4;
     public int LandingCount;
 
+    public bool GameOver = false;
+
     public static GameManager instance;
     // Start is called before the first frame update
     void Awake()

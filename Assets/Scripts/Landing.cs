@@ -11,12 +11,12 @@ public class Landing : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        if(transform.position.y > 10) {
-            Spawner.instance.Pool(gameObject);
+    // void FixedUpdate()
+    // {
+    //     if(transform.position.y > 10) {
+    //         Spawner.instance.Pool(gameObject);
 
-            GameManager.instance.SpawnNew();
-        }
-    }
+    //         GameManager.instance.SpawnNew();
+    //     }
+    // }
 }

@@ -20,5 +20,9 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Platform")
             rb2d.velocity = new Vector2(rb2d.velocity.x, 5);
+        else if (other.tag == "Hazard") {
+            rb2d.velocity = new Vector2(0,0);
+            GameManager.instance.GameOver = false;
+        }
     }
 }

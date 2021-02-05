@@ -56,8 +56,13 @@ public class Spawner : MonoBehaviour
         choice.SetActive(true);
 
         Transform trans = choice.GetComponent<Transform>();
-        trans.position = new Vector3(Random.Range(-2.8f, 2.8f), transform.position.y, 0);
+
+        Vector3 screenBottomCenter = new Vector3(Screen.width / 2, 0, 0);
+        var spawnPos = Camera.main.ScreenToWorldPoint(screenBottomCenter);
+
+        trans.position = new Vector3(Random.Range(-2.8f, 2.8f), spawnPos.y-1, 0);
         trans.SetParent(null);
         pool.Remove(choice);
+        GameManager.instance.LandingCount++;
     }
 }
